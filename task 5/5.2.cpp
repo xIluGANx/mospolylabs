@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     setlocale(LC_ALL, "Russian");
     // ввод координат точек A B C
-    int Ax, Ay, Bx, By, Cx, Cy;
+    float Ax, Ay, Bx, By, Cx, Cy;
     float temp1, temp2;
     cout << "Координаты точки A. ";
     cout << "x = ";
