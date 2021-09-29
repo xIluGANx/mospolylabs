@@ -1,4 +1,5 @@
 
+
 #include <iostream>
 int main()
 {
@@ -16,5 +17,7 @@ int main()
 	// вывод периметра
 	std::cout << p << "\n" ;
 	system("pause");
+	//вывод площади
+	std::cout << a*b<<"\n";
 
 }
