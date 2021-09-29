@@ -4,7 +4,7 @@ using namespace std;
 int main() {
 	setlocale(LC_ALL, "Russian");
 	// ввод переменных x1 y1 x2 y2
-	float x1,y1,x2,y2
+	float x1,y1,x2,y2;
 	cout << "введите x1 - ";
 	cin >> x1;
 	cout << "введите y1 - ";
