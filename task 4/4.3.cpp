@@ -5,10 +5,10 @@ int main()
 	setlocale(LC_ALL, "Russian");
 	// ввод переменных
 	cout << "введите a - ";
-	int a;
+	float a;
 	cin >> a;
 	cout << "введиде b - ";
-	int b;
+	float b;
 	cin >> b;
 	//счет
 	int sum = (a+b)/2;
