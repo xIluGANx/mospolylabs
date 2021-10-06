@@ -24,10 +24,14 @@ int main() {
     cin >> Cy;
     
     // вычисление
+    if((Cx<Bx)&(Cy<By)&(Cx>Ax)&(Cy>Ay)){
     temp1 = sqrt(pow(Ax - Bx, 2) + pow(Ay - By, 2));
     temp2 = sqrt(pow(Bx - Cx, 2) + pow(By - Cy, 2));
     cout << "Длина отрезка AB: " << temp1 << endl;
     cout << "Длина отрезка BC: " << temp2 << endl;
     cout << "Произведение отрезков AC и BC: " << temp1*temp2 << endl;
-
+}
+else{
+    cout<<"C не лежит между A и B";
+}
 }
