@@ -9,8 +9,9 @@ int main()
     cout<<"Введите A- ";
     cin>> x;
     //выполнение задачи
-    temp=x*x*x*x*x*x;
+    temp=pow(x,6);
     y=temp*x*x;
     cout<<"Ans: "<<y;
 }
+
 
