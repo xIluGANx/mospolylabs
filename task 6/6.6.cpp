@@ -5,11 +5,12 @@ int main()
 {
     setlocale(LC_ALL,"Russian");
     //Ввод A и В
-    float x,y,temp;
+    float x,y,temp,temp2;
     cout<<"Введите A- ";
     cin>> x;
     //выполнение задачи
-    temp=pow(x,2);
-    y=pow(temp,2)*temp*temp;
+    temp=x*x*x*x*x*x;
+    y=temp*x*x;
     cout<<"Ans: "<<y;
 }
+
