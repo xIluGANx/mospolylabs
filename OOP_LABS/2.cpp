@@ -205,7 +205,7 @@ int main()
 					pence = pence + shill * 11;
 					shill1 = shill1 + funt1 * 19;
 					pence1 = pence1 + shill1 * 11;
-					d = pence * pence;
+					d = pence * pence1;
 					c = d - (d / 11 * 11);
 					b = c - (c / 19 * 19);
 					a = d / 11 / 19;
