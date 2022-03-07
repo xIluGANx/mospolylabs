@@ -247,7 +247,7 @@ int main()
 			char oper;
 			string yn;
 			cout << "Введите операцию ";
-			cin >> a.a >>oper>> a.b >> oper >> b.a >>oper>> b.b;
+			cin >> a.a >> oper >> a.b >> oper >> b.a >> oper >> b.b;
 			cout << "Answer = " << (a.a * b.b + a.b * b.a) / (a.b * b.b);
 			break;
 		}
@@ -280,31 +280,68 @@ int main()
 				s.pence = s.pence % 19;
 			}
 			else s.shillings = 0;
-			cout << "В старой системе: " << s.pounds << "." << s.shillings << "." << s.pence<<endl;
+			cout << "В старой системе: " << s.pounds << "." << s.shillings << "." << s.pence << endl;
 			break;
 		}
 		case 11:
 			// // // // // // // // // // // //
 		{
 			char d;
-			timee t1, t2,result;
+			timee t1, t2, result;
 			cout << "1 время" << endl;
 			cout << " Введите время: ";
 			cin >> t1.hours >> d >> t1.minutes >> d >> t1.seconds;
 			cout << "2 время" << endl;
 			cout << " Введите время: ";
 			cin >> t2.hours >> d >> t2.minutes >> d >> t2.seconds;
-			int totalsecs = (t1.hours * 3600 + t1.minutes * 60 + t1.seconds) + (t2.hours * 3600 + t2.minutes * 60 + t2.seconds);
-			cout << totalsecs;
-			result.hours = totalsecs/60;
-			cout << " В итоге сложили и получили: " << result.hours;
+			long totalsecs = (t1.hours * 3600 + t1.minutes * 60 + t1.seconds) + (t2.hours * 3600 + t2.minutes * 60 + t2.seconds);
+			result.hours = totalsecs / 3600;
+			result.minutes = (totalsecs / 60) - (totalsecs / 3600 * 60);
+			result.seconds = totalsecs - (totalsecs / 60 * 60);
+			cout << " В итоге сложили и получили: " << result.hours << ":" << result.minutes << ":" << result.seconds;
 			break;
 		}
 		case 12:
 			// // // // // // // // // // // //
 		{
-			cout << " choose only 4 or further";
-			break;
+			bool kon = true;
+			while (kon)
+			{
+				fraction a, b;
+				char oper;
+				string yn;
+				cout << "Введите операцию ";
+				cin >> a.a >> a.b >> oper >> b.a >> b.b;
+				switch (oper) {
+				case '+':
+				{
+					cout << "Answer = " << (float)(a.a * b.b + a.b * b.a)/ (float)(a.b * b.b);
+					break;
+				}
+				case '-':
+				{
+					cout << "Answer = " << (float)(a.a * b.b - a.b * b.a) / (float)(a.b * b.b);
+					break;
+				}
+				case '*':
+				{
+					cout << "Answer = " << (float)(a.a * b.a) / (float)(a.b * b.b);
+					break;
+				}
+				case '/':
+				{
+					cout << "Answer = " << (float)(a.a * b.b) / (float)(a.b * b.a);
+					break;
+				}
+				default: {cout << "Answer = none"; break; }
+				}
+				cout << "Продолжить? y/n: ";
+				cin >> yn;
+				if (yn == "n")
+				{
+					kon = false;
+				}
+			}
 		}
 		default:
 			End = false;
