@@ -17,7 +17,7 @@ double power(char n, int p = 2);
 double power(int n, int p = 2);
 double power(long n, int p = 2);
 double power(float n, int p = 2);
-//7
+//enum7
 enum type { dou, cha, in, lon, floa };
 //8
 void swap(int* a, int* b);
