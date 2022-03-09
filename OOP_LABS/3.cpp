@@ -248,7 +248,7 @@ int main()
 			string yn;
 			cout << "Введите операцию ";
 			cin >> a.a >> oper >> a.b >> oper >> b.a >> oper >> b.b;
-			cout << "Answer = " << (a.a * b.b + a.b * b.a) / (a.b * b.b);
+			cout << "Answer = " << (float)(a.a * b.b + a.b * b.a) / (float)(a.b * b.b);
 			break;
 		}
 		case 9:
