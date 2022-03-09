@@ -7,6 +7,10 @@ long hms_to_secs(int h, int m, long s);
 //void 6
 long time_to_secs(int h, int m, long s);
 int secs_to_time(int h, int m, long s);
+//struct 6
+struct timee {
+	int seconds, minutes, hours;
+};
 //void 7
 double power(double n, int p = 2);
 double power(char n, int p = 2);
@@ -82,7 +86,7 @@ int main()
 		case 6:
 			// // // // // // // // // // // //
 		{
-			int a, b;
+			timee t1;
 			long c;
 			int z;
 			cout << "1 - time to secs, 2 - secs to time , 0 - exit :";
@@ -91,12 +95,13 @@ int main()
 			case 1:
 			{
 				cout << "Введите часы: ";
-				cin >> a;
+				cin >> t1.hours;
 				cout << "Введите минуты: ";
-				cin >> b;
+				cin >> t1.minutes;
 				cout << "Введите секунды: ";
-				cin >> c;
-				time_to_secs(a, b, c);
+				cin >> t1.seconds;
+				c =(long)t1.seconds;
+				time_to_secs(t1.hours, t1.minutes , c);
 				cout << "всего секунд : " << c << endl;
 				break;
 			}
@@ -104,16 +109,18 @@ int main()
 			{
 				cout << "Введите секунды: ";
 				cin >> c;
-				a = 0;
-				b = 0;
+				t1.seconds = (int)c;
+				t1.hours = 0;
+				t1.minutes = 0;
 				cout << "Время: ";
-				secs_to_time(a, b, c);
+				secs_to_time(t1.hours, t1.minutes, t1.seconds);
 				cout << endl;
 				break;
 			}
 			default:break;
 			}
 			break;
+		}
 		}
 		case 7:
 			// // // // // // // // // // // //
