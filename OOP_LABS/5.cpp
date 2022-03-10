@@ -76,6 +76,7 @@ public:
 	{}
 	void get()
 	{
+		bool temp = false;
 		char ch;
 		cout << "Номер рабочего: ";
 		cin >> num;
@@ -83,25 +84,30 @@ public:
 		cin >> salary;
 		cout << "Введите дату в формате dd / mm / yy : " << endl;
 		cin >> date.dd >> ch >> date.mm >> ch >> date.yy;
-		cout << "(laborer, secretary, manager, accountant, executive, researcher): ";
+		do {cout << "(laborer, secretary, manager, accountant, executive, researcher): ";
 		cin >> n;
-		switch (n)
-		{
-		case 'l':
-			a = laborer;
-		case 's':
-			a = secretary;
-		case 'm':
-			a = manager;
-		case 'a':
-			a = accountant;
-		case 'e':
-			a = executive;
-		case 'r':
-			a = researcher;
-		default:
-			cout << "Неправильно введена буква: либо нет в списках, либо вписано больше 1q буквы";
-		}
+		
+			switch (n)
+			{
+			case 'l':
+				a = laborer; break;
+			case 's':
+				a = secretary; break;
+			case 'm':
+				a = manager; break;
+			case 'a':
+				a = accountant; break;
+			case 'e':
+				a = executive; break;
+			case 'r':
+				a = researcher; break;
+			default:
+				cout << "Неправильно введена буква: либо нет в списках, либо вписано больше 1q буквы";
+				temp = true;
+				break;
+			}
+			
+		} while (temp == true);
 
 	}
 	void out()const
@@ -109,12 +115,12 @@ public:
 		cout << "Рабочий номер: " << num << endl << "Зарплата: " << salary << endl << "Дата принятия на работу: " << date.dd << "/" << date.mm << "/" << date.yy << endl;
 		switch (a)
 		{
-		case 0:cout << "Полное название должности:laborer" << endl;
-		case 1:cout << "Полное название должности:secretary" << endl;
-		case 2:cout << "Полное название должности:manager" << endl;
-		case 3:cout << "Полное название должности:accountant" << endl;
-		case 4:cout << "Полное название должности:executive" << endl;
-		case 5:cout << "Полное название должности:researcher" << endl;
+		case laborer:cout << "Полное название должности:laborer" << endl;
+		case secretary:cout << "Полное название должности:secretary" << endl;
+		case manager:cout << "Полное название должности:manager" << endl;
+		case accountant:cout << "Полное название должности:accountant" << endl;
+		case executive:cout << "Полное название должности:executive" << endl;
+		case researcher:cout << "Полное название должности:researcher" << endl;
 		}
 	};
 };
@@ -160,7 +166,7 @@ public:
 	}
 	void out()
 	{
-		cout << "Номер: " << nom<< endl;
+		cout << "Номер: " << nom << endl;
 	}
 };
 int kolvo::kol = 0;
@@ -168,166 +174,166 @@ int kolvo::kol = 0;
 
 class Fraction
 {
- private:
-  int numerator, denominator;
- public:
-  Fraction() :numerator(0), denominator(0)
-  {}
-  Fraction(int num, int denom) : numerator(num), denominator(denom)
-  {}
-  char ch;
-  void get()
-  {
-   cout << "enter fraction" << endl;
-   cin >> numerator >> ch >> denominator;
-  }
-  void add(Fraction f1, Fraction f2)
-  {
-   numerator = f1.numerator * f2.denominator + f1.denominator * f2.numerator;
-   denominator = f1.denominator * f2.denominator;
-  }
-  void disp()
-  {
- cout << numerator << "/" << denominator << endl;
-}
+private:
+	int numerator, denominator;
+public:
+	Fraction() :numerator(0), denominator(0)
+	{}
+	Fraction(int num, int denom) : numerator(num), denominator(denom)
+	{}
+	char ch;
+	void get()
+	{
+		cout << "enter fraction" << endl;
+		cin >> numerator >> ch >> denominator;
+	}
+	void add(Fraction f1, Fraction f2)
+	{
+		numerator = f1.numerator * f2.denominator + f1.denominator * f2.numerator;
+		denominator = f1.denominator * f2.denominator;
+	}
+	void disp()
+	{
+		cout << numerator << "/" << denominator << endl;
+	}
 };
 //10
 class Ship
 {
-	private:
-		int num;
-		static int kolvo;
-		int grad;
-		float min;
-		char compass;
-	public:
-		Ship() :num(0), grad(0), min(0), compass(0)
-		{
-			kolvo++;
-			num = kolvo;
-		}
-		Ship(int num, int deg, float m, char d) : num(num), grad(deg), min(m), compass(d)
-		{}
-		void get()
-		{
-			cout << "Градусы: "; cin >> grad;
-			cout << "Минуты"; cin >> min;
-			cout << "Направление (N, S, E, W)" << endl; cin >> compass;
-		}
-		void out()
-		{
-			cout << "Номер: " << num << endl << "Градусы: " << grad <<endl << min << "'" << endl<<compass << endl;
-		}
+private:
+	int num;
+	static int kolvo;
+	int grad;
+	float min;
+	char compass;
+public:
+	Ship() :num(0), grad(0), min(0), compass(0)
+	{
+		kolvo++;
+		num = kolvo;
+	}
+	Ship(int num, int deg, float m, char d) : num(num), grad(deg), min(m), compass(d)
+	{}
+	void get()
+	{
+		cout << "Градусы: "; cin >> grad;
+		cout << "Минуты"; cin >> min;
+		cout << "Направление (N, S, E, W)" << endl; cin >> compass;
+	}
+	void out()
+	{
+		cout << "Номер: " << num << endl << "Градусы: " << grad << endl << min << "'" << endl << compass << endl;
+	}
 };
-	int Ship::kolvo = 0;
+int Ship::kolvo = 0;
 //11
-	class Fraction1
+class Fraction1
+{
+private:
+	int numerator, denominator;
+public:
+	Fraction1() :numerator(0), denominator(0)
+	{}
+	void get()
 	{
-	private:
-		int numerator, denominator;
-	public:
-		Fraction1() :numerator(0), denominator(0)
-		{}
-		void get()
+		char ch;
+		cout << "enter fraction" << endl;
+		cin >> numerator >> ch >> denominator;
+	}
+	void add(Fraction1 a1, Fraction1 b1)
+	{
+		numerator = a1.numerator * b1.denominator + a1.denominator * b1.numerator;
+		denominator = a1.denominator * b1.denominator;
+	}
+	void sub(Fraction1 a1, Fraction1 b2)
+	{
+		numerator = a1.numerator * b2.denominator - a1.denominator * b2.numerator;
+		denominator = a1.denominator * b2.denominator;
+	}
+	void mul(Fraction1 a1, Fraction1 b1)
+	{
+		numerator = a1.numerator * b1.denominator;
+		denominator = a1.denominator * b1.denominator;
+	}
+	void div(Fraction1 a1, Fraction1 b1)
+	{
+		numerator = a1.numerator * b1.denominator;
+		denominator = a1.denominator * b1.numerator;
+	}
+	void lowterms()
+	{
+		long tnum, tden, temp, gcd;
+		tnum = labs(numerator);
+		tden = labs(denominator);
+		if (tden == 0)
 		{
-			char ch;
-			cout << "enter fraction" << endl;
-			cin >> numerator >> ch >> denominator;
+			cout << "Недопустимый знаменатель!"; exit(1);
 		}
-		void add(Fraction1 a1, Fraction1 b1)
+		else if (tnum == 0)
 		{
-			numerator = a1.numerator * b1.denominator + a1.denominator * b1.numerator;
-			denominator = a1.denominator * b1.denominator;
+			numerator = 0; denominator = 1; return;
 		}
-		void sub(Fraction1 a1, Fraction1 b2)
+		while (tnum != 0)
 		{
-			numerator = a1.numerator * b2.denominator - a1.denominator * b2.numerator;
-			denominator = a1.denominator * b2.denominator;
-		}
-		void mul(Fraction1 a1, Fraction1 b1)
-		{
-			numerator = a1.numerator * b1.denominator;
-			denominator = a1.denominator * b1.denominator;
-		}
-		void div(Fraction1 a1, Fraction1 b1)
-		{
-			numerator = a1.numerator * b1.denominator;
-			denominator = a1.denominator * b1.numerator;
-		}
-		void lowterms()
-		{
-			long tnum, tden, temp, gcd;
-			tnum = labs(numerator);
-			tden = labs(denominator);
-			if (tden == 0)
+			if (tnum < tden)
 			{
-				cout << "Недопустимый знаменатель!"; exit(1);
+				temp = tnum; tnum = tden; tden = temp;
 			}
-			else if (tnum == 0)
-			{
-				numerator = 0; denominator = 1; return;
-			}
-			while (tnum != 0)
-			{
-				if (tnum < tden)
-				{
-					temp = tnum; tnum = tden; tden = temp;
-				}
-				tnum = tnum - tden;
-			}
-			gcd = tden;
-			numerator = numerator / gcd;
-			denominator = denominator / gcd;
+			tnum = tnum - tden;
 		}
-		void disp_fr()const
-		{
-			cout << numerator << "/" << denominator << endl;
-		}
-	};
+		gcd = tden;
+		numerator = numerator / gcd;
+		denominator = denominator / gcd;
+	}
+	void disp_fr()const
+	{
+		cout << numerator << "/" << denominator << endl;
+	}
+};
 //12
-	class Fraction2
-	{
-	private:
+class Fraction2
+{
+private:
 
-	public:
-		int num, denom;
-		Fraction2() :num(0), denom(0)
-		{}
-		void mul(Fraction2 a, Fraction2 b)
+public:
+	int num, denom;
+	Fraction2() :num(0), denom(0)
+	{}
+	void mul(Fraction2 a, Fraction2 b)
+	{
+		num = a.num * b.num;
+		denom = a.denom * b.denom;
+	}
+	void lowterms()
+	{
+		long tnum, tden, temp, gcd;
+		tnum = labs(num);
+		tden = labs(denom);
+		if (tden == 0)
 		{
-			num = a.num * b.num;
-			denom= a.denom * b.denom;
+			cout << "Недопустимый знаменатель!"; exit(1);
 		}
-		void lowterms()
+		else if (tnum == 0)
 		{
-			long tnum, tden, temp, gcd;
-			tnum = labs(num);
-			tden = labs(denom);
-			if (tden == 0)
-			{
-				cout << "Недопустимый знаменатель!"; exit(1);
-			}
-			else if (tnum == 0)
-			{
-				num = 0; denom = 1; return;
-			}
-			while (tnum != 0)
-			{
-				if (tnum < tden)
-				{
-					temp = tnum; tnum = tden; tden = temp;
-				}
-				tnum = tnum - tden;
-			}
-			gcd = tden;
-			num = num / gcd;
-			denom = denom / gcd;
+			num = 0; denom = 1; return;
 		}
-		void disp_fr()const
+		while (tnum != 0)
 		{
-			cout << setw(5) << num << "/" << denom;
+			if (tnum < tden)
+			{
+				temp = tnum; tnum = tden; tden = temp;
+			}
+			tnum = tnum - tden;
 		}
-	};
+		gcd = tden;
+		num = num / gcd;
+		denom = denom / gcd;
+	}
+	void disp_fr()const
+	{
+		cout << setw(5) << num << "/" << denom;
+	}
+};
 
 int main()
 {
@@ -394,29 +400,29 @@ int main()
 		}
 		case 7:
 			// // // // // // // // // // // //
+		{
+			angle a1(179, 59.9, 'E');
+			angle a2;
+			char ch;
+			a1.out();
+			do
 			{
-				angle a1(179, 59.9, 'E');
-				angle a2;
-				char ch;
-				a1.out();
-				do
-				{
-					a2.get();
-					a2.out();
-					cout << "Повторить? (y/n)" << endl;
-					cin >> ch;
-				} while (ch != 'n');
-				break;
-			}
+				a2.get();
+				a2.out();
+				cout << "Повторить? (y/n)" << endl;
+				cin >> ch;
+			} while (ch != 'n');
+			break;
+		}
 		case 8:
 			// // // // // // // // // // // //
-			{
-				kolvo obj1, obj2, obj3;
-				obj1.out();
-				obj2.out();
-				obj3.out();
-				break;
-			}
+		{
+			kolvo obj1, obj2, obj3;
+			obj1.out();
+			obj2.out();
+			obj3.out();
+			break;
+		}
 		case 9:
 			// // // // // // // // // // // //
 		{
@@ -444,7 +450,7 @@ int main()
 			a1.out();
 			a2.out();
 			a3.out();
-			break; 
+			break;
 		}
 		case 11:
 			// // // // // // // // // // // //
@@ -471,37 +477,37 @@ int main()
 		}
 		case 12:
 			// // // // // // // // // // // //
-		{  
-		Fraction2 a, b, c;
-		a.denom = b.denom = num;
-		cout << "Введи знаменатель:" << endl;
-		cin >> num;
-		for (int j = 1; j < num; j++)
 		{
-			a.num = j;
-			a.denom = num;
-			a.lowterms();
-			a.disp_fr();
-		}
-		cout << endl;
-		for (int i = 1; i < num; i++)
-		{
-			b.num= i;
-			b.denom = num;
-			b.lowterms();
-			b.disp_fr();
-
+			Fraction2 a, b, c;
+			a.denom = b.denom = num;
+			cout << "Введи знаменатель:" << endl;
+			cin >> num;
 			for (int j = 1; j < num; j++)
 			{
 				a.num = j;
 				a.denom = num;
-				c.mul(a, b);
-				c.lowterms();
-				c.disp_fr();
+				a.lowterms();
+				a.disp_fr();
 			}
 			cout << endl;
-		}
-		break;
+			for (int i = 1; i < num; i++)
+			{
+				b.num = i;
+				b.denom = num;
+				b.lowterms();
+				b.disp_fr();
+
+				for (int j = 1; j < num; j++)
+				{
+					a.num = j;
+					a.denom = num;
+					c.mul(a, b);
+					c.lowterms();
+					c.disp_fr();
+				}
+				cout << endl;
+			}
+			break;
 		}
 		default:
 			End = false;
