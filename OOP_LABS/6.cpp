@@ -1,5 +1,7 @@
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
 #include <math.h>
 #include <string>
 using namespace std;
@@ -58,7 +60,50 @@ public:
 	}
 };
 //6
-
+enum Suit { clubs, diamonds, hearts, spades };
+// от 2 до 10 обычные числа
+const int jack = 11;
+const int queen = 12;
+const int king = 13;
+const int ace = 14;
+/////////////////////////////////////////////////////////////
+class card
+{
+private:
+	int number;
+	Suit suit;
+public:
+	card() // конструктор
+	{ }
+	void set(int n, Suit s) // установка значения
+	{
+		suit = s; number = n;
+	}
+	void display(); // показ карты
+};
+/////////////////////////////////////////////////////////////
+void card::display()
+{
+	if (number >= 2 && number <= 10)
+		cout << number;
+	else
+	{
+		switch (number)
+		{
+		case jack: cout << 'J'; break;
+		case queen: cout << 'Q'; break;
+		case king: cout << 'K'; break;
+		case ace: cout << 'A'; break;
+		}
+	}
+	switch (suit)
+	{
+	case clubs: cout << static_cast<char>(5); break;
+	case diamonds: cout << static_cast<char>(4); break;
+	case hearts: cout << static_cast<char>(3); break;
+	case spades: cout << static_cast<char>(6); break;
+	}
+}
 //7
 class Money
 {
@@ -82,7 +127,7 @@ public:
 		return sum;
 	}
 	void display()const
-	{	
+	{
 		cout << setiosflags(ios::fixed)
 			<< setiosflags(ios::showpoint)
 			<< setprecision(2)
@@ -94,7 +139,7 @@ public:
 int main()
 {
 	setlocale(LC_ALL, "ru");
-	 bool End = true;
+	bool End = true;
 	int num;
 	//switch cases
 	while (End)
@@ -131,10 +176,10 @@ int main()
 			char ans;
 			do
 			{
-				cout << "Введи число: "<<endl; cin >> numbers[n++];
-				cout << "\nContinue typing? "<<endl; cin >> ans;
+				cout << "Введи число: " << endl; cin >> numbers[n++];
+				cout << "\nContinue typing? " << endl; cin >> ans;
 			} while (ans != 'n');
-			cout << "Большее число: " << numbers[maxint(numbers, n)] << endl<< "Индекс модуля: " << maxint(numbers, n) << endl;
+			cout << "Большее число: " << numbers[maxint(numbers, n)] << endl << "Индекс модуля: " << maxint(numbers, n) << endl;
 		}
 		case 5:
 			// // // // // // // // // // // //
@@ -160,6 +205,67 @@ int main()
 		}
 		case 6:
 			// // // // // // // // // // // //
+		{
+			card deck[52];
+			card deck1[13];
+			card deck2[13];
+			card deck3[13];
+			card deck4[13];
+			int j;
+			cout << endl;
+			for (j = 0; j < 52; j++) // создаем упорядоченную колоду карт
+			{
+				int num = (j % 13) + 2;
+				Suit su = Suit(j / 13);
+				deck[j].set(num, su);
+			}
+			// показываем исходную колоду
+			cout << "Исходная колода:\n";
+			for (j = 0; j < 52; j++)
+			{
+				deck[j].display();
+				cout << " ";
+				if (!((j + 1) % 13)) // начинаем новую строку после каждой 13-й карты
+					cout << endl;
+			}
+			srand(time(NULL)); // инициализируем генератор случайных чисел
+			for (j = 0; j < 52; j++)
+			{
+				int k = rand() % 52; // выбираем случайную карту
+				card temp = deck[j]; // и меняем ее с текущей
+				deck[j] = deck[k];
+				deck[k] = temp;
+			}
+			//Разделяем колоду на 4 части
+			for (j = 0; j < 52; j++) 
+			{
+				int a = j % 14;
+				cout << "\n номер карты в колодах" << a << endl;
+				if (j <= 13) deck1[a] = deck[j];
+				if (j <= 26)deck2[a] = deck[j];
+				if (j <= 39)deck3[a] = deck[j];
+				if (j <= 52)deck4[a] = deck[j];
+			}
+			// показываем перемешанную колоду
+			cout << "\nПеремешанная колода:\n";
+			for (j = 0; j < 52; j++)
+			{
+				int a = j % 13;
+				//вывод колоды 1
+				if (j == 0) cout << "\nКолода 1: ";
+				if (j<=13) { deck1[a].display(); cout << " "; }
+				//вывод колоды 2
+				if (j == 14) cout << "\nКолода 2: ";
+				if (j <= 26) { deck2[a].display(); cout << " "; }
+				//вывод колоды 3
+				if (j == 27) cout << "\nКолода 3: ";
+				if (j <= 39) { deck3[a].display(); cout << " "; }
+				//вывод колоды 4
+				if (j == 40) cout << "\nКолода 4: ";
+				if (j <= 52) { deck2[a].display(); cout << " "; }
+			}
+			break;
+		}
 		case 7:
 			// // // // // // // // // // // //
 		case 8:
@@ -195,5 +301,3 @@ int maxint(int num[], int n)
 	}
 	return index;
 }
-
-
