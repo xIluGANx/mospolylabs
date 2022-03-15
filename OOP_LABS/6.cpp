@@ -134,7 +134,35 @@ public:
 			<< endl << sum << endl;
 	}
 };
+//8
+const int lim = 100;
 
+class Safearay
+{
+private:
+	int array[lim];
+public:
+	void putel(int n, int temp)
+	{
+		if (n<0 || n>lim - 1)
+		{
+			cout << "Warning! overflow array!" << endl;;
+			system("pause");
+			exit(1);
+		}
+		array[n] = temp;
+	}
+	int getel(int n)
+	{
+		if (n<0 || n>lim - 1)
+		{
+			cout << "Warning! overflow array!" << endl;;
+			system("pause");
+			exit(1);
+		}
+		return array[n];
+	}
+};
 
 int main()
 {
@@ -239,12 +267,12 @@ int main()
 			//Разделяем колоду на 4 части
 			for (j = 0; j < 52; j++) 
 			{
-				int a = j % 14;
+				int a = (j+1) % 13;
 				cout << "\n номер карты в колодах" << a << endl;
-				if (j <= 13) deck1[a] = deck[j];
-				if (j <= 26)deck2[a] = deck[j];
-				if (j <= 39)deck3[a] = deck[j];
-				if (j <= 52)deck4[a] = deck[j];
+				if (j <= 13)deck1[a] = deck[j];
+				if (j <= 26 and j>13)deck2[a] = deck[j];
+				if (j <= 39 and j>26)deck3[a] = deck[j];
+				if (j <= 52 and j>39)deck4[a] = deck[j];
 			}
 			// показываем перемешанную колоду
 			cout << "\nПеремешанная колода:\n";
@@ -256,18 +284,22 @@ int main()
 				if (j<=13) { deck1[a].display(); cout << " "; }
 				//вывод колоды 2
 				if (j == 14) cout << "\nКолода 2: ";
-				if (j <= 26) { deck2[a].display(); cout << " "; }
+				if (j <= 26 and j > 13) { deck2[a].display(); cout << " "; }
 				//вывод колоды 3
 				if (j == 27) cout << "\nКолода 3: ";
-				if (j <= 39) { deck3[a].display(); cout << " "; }
+				if (j <= 39 and j >26) { deck3[a].display(); cout << " "; }
 				//вывод колоды 4
 				if (j == 40) cout << "\nКолода 4: ";
-				if (j <= 52) { deck2[a].display(); cout << " "; }
+				if (j <= 52 and j >39) { deck2[a].display(); cout << " "; }
 			}
 			break;
 		}
 		case 7:
 			// // // // // // // // // // // //
+		{    Money mone;
+		mone.mstold();
+		mone.display();
+		break; }
 		case 8:
 			// // // // // // // // // // // //
 		case 9:
