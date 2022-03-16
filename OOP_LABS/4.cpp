@@ -511,3 +511,4 @@ fraction fdiv(fraction a1, fraction b1)
     summ.denominator = a1.denominator * b1.numerator;
     return summ;
 }
+
