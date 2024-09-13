@@ -1,0 +1,11 @@
+﻿<Window x:Class="TTSApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TTS Приложение" Height="300" Width="400">
+    <Grid>
+        <TextBox x:Name="InputTextBox" Height="100" Margin="0,0,0,147" AcceptsReturn="True" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="380" />
+        <Button x:Name="LoadFileButton" Content="Загрузить файл" Margin="10,142,0,0" Height="30" Click="LoadFileButton_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Width="380"/>
+        <Button x:Name="SynthesizeButton" Content="Синтезировать речь" Margin="0,177,10,0" Click="SynthesizeButton_Click" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="380"/>
+        <Button x:Name="SaveAudioButton" Content="Сохранить аудио" Margin="10,212,0,0" Click="SaveAudioButton_Click" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="380"/>
+    </Grid>
+</Window>

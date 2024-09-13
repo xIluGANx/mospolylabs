@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "H5G+Skw2DPE0xHAqoBohDyciPWfXanecIcIBe3DWzHgWvhAqy3itGpSznfTz2qJ07zCPipFLUvQBn1Egm5/bXg==",
+  "success": true,
+  "projectFilePath": "E:\\PROGS\\VISUAL STUDIO\\Projecta\\TTSApp\\TTSApp\\TTSApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ilika\\.nuget\\packages\\system.speech\\8.0.0\\system.speech.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
